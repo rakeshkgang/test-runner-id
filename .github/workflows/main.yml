@@ -12,14 +12,14 @@ jobs:
         run: echo "Hello World from Default GitHub Runner"
 
       - name: Print Runner ID
-        run: echo "Runner ID: ${{ runner.id }}"
+        run: echo "Runner ID:${{ runner.id }}"
 
   second-job:
-    runs-on: ubuntu-latest  # Using the default GitHub runner for the second job as well
+    runs-on: self-hosted  # Using a self-hosted GitHub runner for the second job
     needs: hello-world  # Job 2 will only run after Job 1
     steps:
       - name: Confirm Job 2 Execution
         run: echo "Job 2 is executing after Job 1"
 
       - name: Print Runner ID
-        run: echo "Runner ID: ${{ runner.id }}"
+        run: echo "Runner ID:${{ runner.id }}"
