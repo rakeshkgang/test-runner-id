@@ -1,0 +1,25 @@
+name: prod api helm deployment
+permissions: write-all
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest  # Using the default GitHub runner
+    steps:
+      - name: Print Hello World
+        run: echo "Hello World from Default GitHub Runner"
+
+      - name: Print Runner ID
+        run: echo "Runner ID: ${{ runner.id }}"
+
+  second-job:
+    runs-on: ubuntu-latest  # Using the default GitHub runner for the second job as well
+    needs: hello-world  # Job 2 will only run after Job 1 is complete
+    steps:
+      - name: Print Hello from Second Job
+        run: echo "Hello from the Second Job on Default GitHub Runner"
+
+      - name: Print Runner ID
+        run: echo "Runner ID: ${{ runner.id }}"
