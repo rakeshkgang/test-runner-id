@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest  # Using the default GitHub runner
     steps:
       - name: Print Hello World from Build Job
-        run: echo "Hello World from Build Job"
+        run: echo "Hello World from Build Job";
 
       - name: Print Runner ID from Build Job
-        run: echo "Runner ID: ${{ runner.id }}"
+        run: echo "Runner ID ${{ runner.id }}";
+
+      - name: Print GitHub Run ID
+        run: echo "GitHub Run ID ${{ github.run_id }}";
 
   deploy-helm:
     runs-on: ubuntu-latest  # Using the default GitHub runner for testing
@@ -22,4 +25,7 @@ jobs:
         run: echo "Hello World from Deploy Job"
 
       - name: Print Runner ID from Deploy Job
-        run: echo "Runner ID: ${{ runner.id }}"
+        run: echo "Runner ID ${{ runner.id }}"
+
+      - name: Print GitHub Run ID
+        run: echo "GitHub Run ID ${{ github.run_id }}"
