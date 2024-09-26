@@ -16,10 +16,10 @@ jobs:
 
   second-job:
     runs-on: ubuntu-latest  # Using the default GitHub runner for the second job as well
-    needs: hello-world  # Job 2 will only run after Job 1 is complete
+    needs: hello-world  # Job 2 will only run after Job 1
     steps:
-      - name: Print Hello from Second Job
-        run: echo "Hello from the Second Job on Default GitHub Runner"
+      - name: Confirm Job 2 Execution
+        run: echo "Job 2 is executing after Job 1"
 
       - name: Print Runner ID
         run: echo "Runner ID: ${{ runner.id }}"
